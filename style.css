@@ -1,0 +1,289 @@
+/* Import Google font - Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+body {
+  background: #2A2A35; /* Luxurious dark background */
+  animation: fadeIn 1s ease-in-out;
+  scroll-behavior: smooth; /* Smooth scrolling */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+h1 {
+  background: linear-gradient(90deg, #b38600, #ffdd44); /* Elegant gold gradient */
+  font-size: 2.5rem;
+  text-align: center;
+  padding: 30px 0;
+  color: #fff;
+  animation: slideDown 1.2s ease-out;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+h1::after {
+  content: "";
+  position: absolute;
+  left: -100%;
+  width: 100%;
+  height: 5px;
+  background: #ffdd44;
+  animation: h1Underline 2s ease-in-out infinite;
+}
+@keyframes h1Underline {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: -100%; }
+}
+.container {
+  display: flex;
+  gap: 35px;
+  padding: 40px;
+  animation: fadeInUp 1.5s ease-out;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.weather-input {
+  width: 600px;
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphism background */
+  border-radius: 10px;
+  backdrop-filter: blur(10px); /* Blur effect */
+  padding: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.5s ease;
+}
+.weather-input:hover {
+  transform: scale(1.03);
+}
+.weather-input input {
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 1.2rem;
+  padding: 0 18px;
+  margin: 15px 0 25px 0;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  transition: 0.3s ease;
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.weather-input input:focus {
+  padding: 0 17px;
+  border: 2px solid #b38600;
+  box-shadow: 0 0 15px rgba(179, 134, 0, 0.5);
+}
+.weather-input .separator {
+  height: 2px;
+  width: 100%;
+  margin: 30px 0;
+  background: #BBB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.weather-input .separator::before {
+  content: "or";
+  color: #ffdd44;
+  font-size: 1.2rem;
+  padding: 0 15px;
+  margin-top: -5px;
+  background: #2A2A35;
+}
+.weather-input button {
+  width: 100%;
+  padding: 15px 0;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  color: #fff;
+  background: linear-gradient(45deg, #6a1b9a, #8e24aa);
+  transition: all 0.5s ease;
+  transform: translateY(0);
+  position: relative;
+  overflow: hidden;
+}
+.weather-input button::before {
+  content: "";
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  top: -100%;
+  left: -100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+}
+.weather-input button:hover::before {
+  top: 100%;
+  left: 100%;
+}
+.weather-input button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(142, 36, 170, 0.3);
+}
+.weather-data {
+  width: 100%;
+}
+.weather-data .current-weather {
+  color: #fff;
+  background: linear-gradient(135deg, #6a1b9a, #8e24aa);
+  border-radius: 10px;
+  padding: 30px 80px 30px 30px;
+  display: flex;
+  justify-content: space-between;
+  transition: transform 0.5s ease;
+  transform: scale(1);
+}
+.weather-data .current-weather:hover {
+  transform: scale(1.05);
+}
+.weather-data h6 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.weather-data h6:hover {
+  color: #ffdd44;
+}
+.current-weather .icon {
+  text-align: center;
+}
+.current-weather .icon img {
+  max-width: 140px;
+  margin-top: -20px;
+  animation: bounce 2s infinite;
+}
+.current-weather .icon h6 {
+  margin-top: -10px;
+  text-transform: capitalize;
+}
+.days-forecast h2 {
+  margin: 30px 0;
+  font-size: 1.6rem;
+  color: #ffdd44; /* Gold */
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+}
+.days-forecast .weather-cards {
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
+}
+.weather-cards .card {
+  color: #fff;
+  padding: 20px 18px;
+  list-style: none;
+  width: calc(100% / 5);
+  background: rgba(94, 53, 177, 0.9); /* Semi-transparent card */
+  border-radius: 10px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+.weather-cards .card::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -100%;
+  left: -100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+}
+.weather-cards .card:hover::before {
+  top: 100%;
+  left: 100%;
+}
+.weather-cards .card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 12px 25px rgba(94, 53, 177, 0.6);
+}
+.weather-cards .card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.weather-cards .card img {
+  max-width: 80px;
+  margin: 10px 0 -15px 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 1400px) {
+  .weather-data .current-weather {
+    padding: 25px;
+  }
+  .weather-cards {
+    flex-wrap: wrap;
+  }
+  .weather-cards .card {
+    width: calc(100% / 4 - 15px);
+  }
+}
+@media (max-width: 1200px) {
+  .weather-cards .card {
+    width: calc(100% / 3 - 15px);
+  }
+}
+@media (max-width: 950px)
+{
+  .weather-input {
+    width: 450px;
+  }
+  .weather-cards .card {
+    width: calc(100% / 2 - 10px);
+  }
+}
+@media (max-width: 750px) {
+  h1 {
+    font-size: 1.45rem;
+    padding: 16px 0;
+  }
+  .container {
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+  .weather-input {
+    width: 100%;
+  }
+  .weather-data h2 {
+    font-size: 1.35rem;
+  }
+}
